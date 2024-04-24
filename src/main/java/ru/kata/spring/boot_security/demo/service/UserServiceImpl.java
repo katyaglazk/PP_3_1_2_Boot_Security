@@ -59,7 +59,7 @@ public class UserServiceImpl implements UserService {
         }
         Set<Role> roles = getSetOfRoles(valueRoles);
         user.setRoles(roles);
-        user.setPassword(userFromDB.getPassword());
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         usersRepository.save(user);
     }
 
